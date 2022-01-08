@@ -3,15 +3,14 @@ pipeline {
     stages {
         stage('One') {
                 steps {
-                        echo 'Hi, this is Zulaikha from edureka'
+                        echo 'Hi, this is Freidon'
 			
+                    }
+        }
+	    stage('Two'){    
+		    steps {
+			        input('Do you want to proceed?')
                 }
-        }
-	    stage('Two'){
-		    
-		steps {
-			input('Do you want to proceed?')
-        }
 	    }
         stage('Three') {
                 when {
@@ -31,18 +30,12 @@ pipeline {
                                 }
                         }
                         stage('Integration test') {
-                        agent {
-                                docker {
-                                        reuseNode false
-					image 'ubuntu'
-                                        }
-			}
-				steps {
-					echo 'Running the integration test..'
-				}
+				            steps {
+					                    echo 'Running the integration test..'
+				                }
                                
-			}  }
-        }
+			            }
+		        }
+            }
     }
 }
-
